@@ -1,0 +1,22 @@
+n : int = int(input("Enter a number > 0: "))
+def Check(n: int) -> bool:
+    is_good = False
+    while n > 0:
+        if n % 10 == 0:
+            is_good = True
+            break
+        n = n // 10
+    return is_good
+
+def competite(number: int) -> list:
+    temp =[]
+    temp.append(number)
+    while not Check(number):
+        number = int(input("Try again!: "))
+        temp.append(number)
+        if Check(number):
+            print("You win")
+    return temp
+
+numbers_list = competite(n)
+print(f"Max of entered numbers is: {max(numbers_list)}")
